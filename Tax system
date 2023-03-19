@@ -1,0 +1,142 @@
+#include <iostream>
+using namespace std;
+int main() {
+
+ int tax;
+ int transport;
+ int capacity;
+ int seat;
+ int price, p, pr;
+ int sum;
+ int income;
+
+ int lightauto[6] = {1100, 1500, 2000, 2500, 3000, 4000};
+ int heavyauto[3] = {1000, 1500, 5000};
+ int buses[2] = { 12, 25 };
+
+ while (true) {
+
+  cout << " WELCOME TO TAX SYSTEM" << endl << "What type of tax do you want to calculate ?" << endl <<
+   "1.    Transport" << endl <<
+   "2.    Real estate" << endl <<
+   "3.    IIT" << endl <<
+   "4.    VAT" << endl <<
+   "If you are done press 0" << endl;
+  cin >> tax;
+
+  if (tax == 0) {
+   cout << "Exiting from tax system...";
+   break;
+  }
+
+  switch (tax) {
+  case 1:
+   cout << "What type of transport ?" << endl <<
+    "1.   Cars" << endl <<
+    "2.   Trucks" << endl <<
+    "3.   Buses" << endl;
+   cin >> transport;
+
+   if (transport == 1) {
+    cout << "Enter engine capacity: ";
+    cin >> capacity;
+    if (capacity <= lightauto[0]) {
+     cout << "Tax: " << 3450 * 1 << endl;
+    }
+    else if (capacity <= lightauto[1]) {
+     cout << "Tax: " << 3450 * 2 << endl;
+    }
+    else if (capacity <= lightauto[2]) {
+     cout << "Tax: " << 3450 * 3 << endl;
+    }
+    else if (capacity <= lightauto[3]) {
+     cout << "Tax: " << 3450 * 6 << endl;
+    }
+    else if (capacity <= lightauto[4]) {
+     cout << "Tax: " << 3450 * 9 << endl;
+    }
+    else if (capacity <= lightauto[5]) {
+     cout << "Tax: " << 3450 * 15 << endl;
+    }
+    else if (capacity >= lightauto[5]) {
+     cout << "Tax: " << 3450 * 117 << endl;
+    }
+
+   }
+
+   if (transport == 2) {
+    cout << "Enter engine capacity: " << endl;
+    cin >> capacity;
+    if (capacity <= heavyauto[0]) {
+     cout << "Tax: " << 3450 * 3 << endl;
+    }
+    else if (capacity <= heavyauto[1]) {
+     cout << "Tax: " << 3450 * 5 << endl;
+    }
+    else if (capacity <= heavyauto[2]) {
+     cout << "Tax: " << 3450 * 7 << endl;
+    }
+    else if (capacity > heavyauto[2]) {
+     cout << "Tax: " << 3450 * 9 << endl;
+    }
+   }
+
+   if (transport == 3) {
+    cout << "Enter the number of seats: " << endl;
+    cin >> seat;
+    if (seat <= buses[0]) {
+     cout << "Tax: " << 3450 * 9 << endl;
+    }
+    else if (seat <= buses[1]) {
+     cout << "Tax: " << 3450 * 14 << endl;
+    }
+    else if (seat > buses[1]) {
+     cout << "Tax: " << 3450 * 20 << endl;
+    }
+   }
+
+   break;
+
+  case 2:
+   cout << "Enter the price: " << endl;
+   cin >> price;
+   if (price >= 10000000 && price <= 12000000) {
+    p = price - 10000000;
+    pr = p * 0.25 / 100;
+    cout << "Tax: " << 11600.0 + pr << endl;
+   }
+   else if (price >= 12000000 && price <= 14000000) {
+    p = price - 12000000;
+    pr = p * 0.3 / 100;
+    cout << "Tax: " << 16600.0 + pr << endl;
+   }
+   else if (price >= 14000000 && price <= 16000000) {
+    p = price - 14000000;
+    pr = p * 0.35 / 100;
+    cout << "Tax: " << 22600.0 + pr << endl;
+   }
+   else if (price >= 16000000 && price <= 18000000) {
+    p = price - 16000000;
+    pr = p * 0.4 / 100;
+    cout << "Tax: " << 29600.0 + pr << endl;
+   }
+   else if (price >= 18000000 && price <= 20000000) {
+    p = price - 18000000;
+    pr = p * 0.45 / 100;
+    cout << "Tax: " << 37600.0 + pr << endl;
+   }
+   break;
+
+  case 3:
+   cout << "Enter your income: " << endl;
+   cin >> income;
+   cout << "Tax: " << income * 0.1 << endl;
+   break;
+  case 4:
+   cout << "Enter the sum: " << endl;
+   cin >> sum;
+   cout << "Tax: " << sum * 0.12 << endl;
+   break;
+  }
+ }
+}
